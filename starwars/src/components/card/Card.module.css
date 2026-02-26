@@ -1,0 +1,66 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: black;
+    width: 100vw;
+}
+
+.containercard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 150px;
+    height: 300px;
+    background-color: #191e27;
+    border: solid 2px pink;
+}
+
+.titulo{
+    color: #ffbf00;
+    text-shadow: 0 0 15px #ffbf00;
+}
+
+.descritivo{
+    color: #828994;
+}
+
+.nomepersonagem{
+    color: #ffbf00;
+}
+
+.iconefav{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: solid 2px pink;
+}
+.iconeperson{
+    width: 30px;
+    height: 30px;
+}
+
+.containerInfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: solid 2px blue;
+    height: 40%;
+    font-family: orbitron;
+    gap: 0;
+}
+
+.nomepersonagem{
+    font-size: 0.8rem;
+    border: solid 1px red;
+}
+
+.infos{
+    font-size: 0.5rem;
+    border: solid 1px red;
+    color: #828994;
+}

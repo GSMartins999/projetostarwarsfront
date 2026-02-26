@@ -1,0 +1,71 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100vw;
+    height: 80px;
+    border-bottom: solid 2px #2b3140;
+    background-color: #0f1218;
+    position:fixed;
+}
+.logo{
+    color: #ffbf00;
+    font-size: 1.2rem;
+    width: 20%;
+    margin-left: 20px;
+    padding-left: 5px;
+    font-family: 'Orbitron';
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-shadow: 0 0 15px #ffbf00;
+}
+.containerbotao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 100%;
+    width: 500px;
+    gap: 10px;
+    margin-right: 20px;
+}
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: transparent;
+    font-family: 'Orbitron';
+    gap: 5px;
+}
+.botao1{
+    color: black;
+    background-color: #ffbf00;
+    border: none;
+}
+.botao2{
+    color: #828994;
+    border: none;
+}
+
+.botao2:hover{
+    background-color: #828994;
+    color: #ffeccc;
+}
+.icone1{
+    width: 20px;
+    height: 20px;
+    filter: invert(100%) brightness(0%);
+}
+.icone2{
+    width: 20px;
+    height: 20px;
+    filter: invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%);
+}
+.botao2:hover > .icone2{
+    filter: invert(96%) sepia(8%) saturate(160%) hue-rotate(350deg) brightness(101%) contrast(94%);
+};
