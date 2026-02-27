@@ -10,13 +10,15 @@
 
 .containercard{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     width: 150px;
     height: 300px;
     background-color: #191e27;
     border: solid 2px pink;
+    border-radius: 15px;
+    right: 0;
 }
 
 .titulo{
@@ -33,14 +35,18 @@
 }
 
 .iconefav{
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     border: solid 2px pink;
+    padding: 4px;
+    filter: invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%);
+    cursor: pointer;
 }
 .iconeperson{
     width: 30px;
     height: 30px;
+    filter: invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%);
 }
 
 .containerInfo{
