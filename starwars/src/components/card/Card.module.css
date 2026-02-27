@@ -2,10 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh;
     background-color: black;
     width: 100vw;
+    gap: 30px;
+
 }
 
 .containercard{
@@ -19,6 +21,10 @@
     border: solid 2px pink;
     border-radius: 15px;
     right: 0;
+    background-image: var(--url-img);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: bounce 1.5s infinite;
 }
 
 .titulo{
@@ -52,12 +58,14 @@
 .containerInfo{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
     border: solid 2px blue;
     height: 40%;
     font-family: orbitron;
     gap: 0;
+    width: 100%;
+    color: black;
 }
 
 .nomepersonagem{
