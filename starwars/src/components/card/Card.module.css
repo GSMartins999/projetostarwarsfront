@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     height: 100vh;
     background-color: black;
     width: 100vw;
@@ -10,23 +10,57 @@
 
 }
 
+.containerPaiCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 60%;
+    background-color: black;
+    width: 100vw;
+    gap: 30px;
+}
+
+.containerMensagem{
+ width: 100%;
+ height: 110px;
+ border: solid 2px beige;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ gap: 5px;
+}
+
 .containercard{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
-    width: 150px;
-    height: 300px;
+    width: 200px;
+    height: 400px;
     background-color: #191e27;
-    border: solid 2px pink;
     border-radius: 15px;
     right: 0;
     background-image: var(--url-img);
     background-repeat: no-repeat;
     background-size: cover;
-    animation: bounce 1.5s infinite;
+    /*Transition faz um movimento suave quando passa o mouse em cima do card  */
+    transition: 0.5s ease-in-out;
 }
 
+.containercard:hover{
+    /*Cria o efeito de card saltando */
+    transform: scale(1.1);
+}
+
+.containerIcone{
+    width: 90%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 5px 5px 0px 0px
+}
 .titulo{
     color: #ffbf00;
     text-shadow: 0 0 15px #ffbf00;
@@ -34,6 +68,7 @@
 
 .descritivo{
     color: #828994;
+    font-size: 0.8rem;
 }
 
 .nomepersonagem{
@@ -44,11 +79,17 @@
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    border: solid 2px pink;
+    border: solid 2px #828994;
     padding: 4px;
     filter: invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%);
     cursor: pointer;
+    right: 0;
 }
+
+.iconefav:hover{
+    border: #ffbf00 solid 2px;
+}
+
 .iconeperson{
     width: 30px;
     height: 30px;
@@ -60,21 +101,31 @@
     justify-content: center;
     align-items: start;
     flex-direction: column;
-    border: solid 2px blue;
-    height: 40%;
+    height: 30%;
     font-family: orbitron;
-    gap: 0;
-    width: 100%;
+    margin: 0 2px 5px 10px;
+    padding: 0;
+    width: 95%;
     color: black;
+    margin-inline: 10px;
 }
 
 .nomepersonagem{
-    font-size: 0.8rem;
-    border: solid 1px red;
+    font-size: 14px;
+    height: auto;
+    width: 100%;
+}
+
+.listaInfo{
+    padding: 0;
+    margin: 0;
 }
 
 .infos{
-    font-size: 0.5rem;
-    border: solid 1px red;
+    font-size: 12px;
     color: #828994;
+    height: 18px;
+    margin-top: 2px;
+    list-style: none;
+    width: 100%;
 }
