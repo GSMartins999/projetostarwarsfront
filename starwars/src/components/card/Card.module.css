@@ -19,6 +19,7 @@
     background-color: #0f1218;
     width: 100vw;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 .containerMensagem{
@@ -92,10 +93,12 @@
     filter: invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%);
     cursor: pointer;
     right: 0;
+    transition: 0.5s ease-in-out;
 }
 
 .iconefav:hover{
     border: #ffbf00 solid 2px;
+    filter: invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%);
 }
 
 .iconeperson{
@@ -146,4 +149,5 @@
     height: auto;
     padding: 10px;
     width: 100%;
+    transition: 0.5s ease-in-out;
 }

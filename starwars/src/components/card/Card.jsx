@@ -1,6 +1,9 @@
 import styles from './Card.module.css'
 import person from "./../../assets/person.svg"
 import heart from "./../../assets/heart.svg"
+import trash from "./../../assets/trash.svg"
+import pen from "./../../assets/pen.svg"
+import yellowheart from "./../../assets/yellowheart.png"
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -15,8 +18,18 @@ export default function Card({ itens }) {
     //Função para armazenar um item em uma lista baseado em um estado.
     //Tentei por push antes, mas os dados não atualizam corretamente
     function favoritado(itemfavoritado) {
-        if (itemfavoritado) {
+        if(listaFavoritos.some((personagem) => personagem.nome === itemfavoritado.nome)){
+            return(
+                <>
+                <div style={{width:"100px", height:"100px", border: "solid 2px black"}}>
+                    <p>"Você já favoritou esse item!"</p>
+                </div>
+                </>
+            )
+        }else if (itemfavoritado) {
             setListaDeFavoritos([...listaFavoritos, itemfavoritado])
+        } else {
+            "Não foi possível favoritar esse item"
         }
     }
 
@@ -63,7 +76,7 @@ export default function Card({ itens }) {
                         {itens.map(item => (
                             <div style={{ "--url-img": `url(${item.url})`, border: estaFavoritado(item)?"#ffbf00 solid 2px":"#828994 solid 2px"}} className={styles.containercard} key={item.id}>
                                 <div className={styles.containerIcone}>
-                                    <img className={styles.iconefav} src={heart} alt="favoritos" onClick={() => favoritado(item)}/>
+                                    <img className={styles.iconefav} src={estaFavoritado(item)?(yellowheart):(heart)} alt="favoritos" onClick={() => favoritado(item)} style={{filter: estaFavoritado(item) ? "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)" : "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)"}}/>
                                 </div>
                                 <div className={styles.containerInfo}>
                                     <p className={styles.nomepersonagem}>{item.nome}</p>
@@ -82,8 +95,8 @@ export default function Card({ itens }) {
                                 {listaFavoritos.map(item => (
                                     <div style={{ "--url-img": `url(${item.url})`, border: estaFavoritado(item)?"#ffbf00 solid 2px":"#828994 solid 2px" }} className={styles.containercard} key={item.id}>
                                         <div className={styles.containerIcone}>
-                                            <img className={styles.iconefav} src={heart} style={{filter: estaFavoritado(item) ? "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)" : "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)"}} alt="favoritos" onClick={() => favoritado(item)} />
-                                            <img className={styles.iconefav} src={person} alt="excluirFavoritos" onClick={() => removerDosFavoritos(item)} />
+                                            {/* <img className={styles.iconefav} src={pen} style={{filter: estaFavoritado(item) ? "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)" : "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)"}} alt="editar" onClick={() => favoritado(item)} /> */}
+                                            <img className={styles.iconefav} src={trash} alt="excluirFavoritos" onClick={() => removerDosFavoritos(item)} />
                                         </div>
                                         <div className={styles.containerInfo}>
                                             <p className={styles.nomepersonagem}>{item.nome}</p>
