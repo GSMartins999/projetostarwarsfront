@@ -41,6 +41,7 @@ button{
     background-color: transparent;
     font-family: 'Orbitron';
     gap: 5px;
+    transition: 0.5s ease-in-out;
 }
 .botao1{
     color: black;

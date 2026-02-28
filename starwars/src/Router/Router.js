@@ -10,7 +10,7 @@ export const Router = () => {
         <BrowserRouter>
         <Routes>
             <Route path="/" element={ <Inicial/>}/>
-            <Route path="favoritos" element={<Favoritos />} />
+            <Route path="/Favoritos" element={<Favoritos />} />
         </Routes>
         </BrowserRouter>
     )
