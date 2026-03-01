@@ -2,11 +2,14 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
-    width: 100vw;
+    width: 100%;
     height: 80px;
     border-bottom: solid 2px #2b3140;
     background-color: #0f1218;
     position:fixed;
+    z-index: 2;
+    padding: 0;
+    margin: 0;
 }
 .logo{
     color: #ffbf00;

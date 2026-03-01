@@ -6,11 +6,12 @@ import pen from "./../../assets/pen.svg"
 import yellowheart from "./../../assets/yellowheart.png"
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import Footer from '../footer/Footer'
 
 
 
 
-export default function Card({ itens }) {
+export default function Card({ itens, currentPage, setCurrentPage, totalPages }) {
 
     const [listaFavoritos, setListaDeFavoritos] = useState([])
     const location = useLocation()
@@ -38,7 +39,6 @@ export default function Card({ itens }) {
             return (listaFavoritos.some((item) => item.name === carditem.name))
     }
 
-    // if(item.url == ""; src={person};<img className={styles.iconefav} src={heart} alt="favoritos" onClick={() => favoritado(item)} />)
     return (
         <>
             <div className={styles.container}>
@@ -64,11 +64,13 @@ export default function Card({ itens }) {
                 <div className={styles.containerPaiCard}>
                     {location.pathname === "/" ? (<>
                         {itens.map(item => (
-                            <div style={{ "--url-img": `url(${item.url})`, border: estaFavoritado(item)?"#ffbf00 solid 2px":"#828994 solid 2px"}} className={styles.containercard} key={item.name}>
+                            // <div style={{ "--url-img": `url(${item.url})`, border: estaFavoritado(item)?"#ffbf00 solid 2px":"#828994 solid 2px"}} className={styles.containercard} key={item.name}>
+                            <div style={{border: estaFavoritado(item)?"#ffbf00 solid 2px":"#828994 solid 2px"}} className={styles.containercard} key={item.name}>
                             {console.log(item.url)}
                                 <div className={styles.containerIcone}>
                                     <img className={styles.iconefav} src={estaFavoritado(item)?(yellowheart):(heart)} alt="favoritos" onClick={() => favoritado(item)} style={{filter: estaFavoritado(item) ? "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)" : "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)"}}/>
                                 </div>
+                                <img src={person} style={{width: "50px", height:"50px"}} alt="iconepessoa" />
                                 <div className={styles.containerInfo}>
                                     <p className={styles.nomepersonagem}>{item.name}</p>
                                     <ul className={styles.listaInfo}>
@@ -89,6 +91,7 @@ export default function Card({ itens }) {
                                             {/* <img className={styles.iconefav} src={pen} style={{filter: estaFavoritado(item) ? "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)" : "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)"}} alt="editar" onClick={() => favoritado(item)} /> */}
                                             <img className={styles.iconefav} src={trash} alt="excluirFavoritos" onClick={() => removerDosFavoritos(item)} />
                                         </div>
+                                        <img src={person} style={{width: "50px", height:"50px"}} alt="iconepessoa" />
                                         <div className={styles.containerInfo}>
                                             <p className={styles.nomepersonagem}>{item.name}</p>
                                             <ul className={styles.listaInfo}>
@@ -115,7 +118,9 @@ export default function Card({ itens }) {
                         </>
                     )}
                 </div>
-
+                <div>
+                    {location.pathname === "/"?(<><Footer currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages}/></>):(<></>)}
+                </div>
             </div>
         </>
     )

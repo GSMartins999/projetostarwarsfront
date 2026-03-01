@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: transparent;
+    font-family: 'Orbitron';
+    gap: 5px;
+    transition: 0.5s ease-in-out;
+}
+
+.botao2{
+    color: #828994;
+    border: none;
+    background-color: #191e27;
+}
+
+.botao2:hover{
+    color: #ffeccc;
+}
+
+.numeroPagina{
+    color: #ffbf00;
+    font-family: orbitron;
+}
