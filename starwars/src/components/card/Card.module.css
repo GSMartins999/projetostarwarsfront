@@ -48,7 +48,9 @@
     background-size: cover;
     /*Transition faz um movimento suave quando passa o mouse em cima do card  */
     transition: 0.5s ease-in-out;
+    box-shadow: 0 0 5px #ffbf00;
 }
+
 
 .containercard:hover{
     /*Cria o efeito de card saltando */

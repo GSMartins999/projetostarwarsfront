@@ -1,6 +1,9 @@
+import axios from 'axios';
 import './App.css'
 import Card from './components/card/Card'
 import Header from './components/header/Header'
+import { use, useEffect, useState } from 'react';
+import { BASE_URL } from './constants';
 
 
 const personagens = [{
@@ -28,12 +31,29 @@ const personagens = [{
 ];
 
 
+
+
+
 function App() {
+const [person, setPerson] = useState([])
+const getStarWarsApi = async() => {
+  try{
+    const response = await axios.get(`${BASE_URL}?page=1`);
+    setPerson(response.data.results);
+    console.log(response.data.results);
+  }catch(error){
+    console.log("Erro ao buscar personagens");
+    console.log("Error response")
+  }
+}
+useEffect(() => {
+  getStarWarsApi();
+}, [])
 
   return (
     <>
       <Header/>
-      <Card itens={personagens}/>
+      <Card itens={person}/>
     </>
   )
 }

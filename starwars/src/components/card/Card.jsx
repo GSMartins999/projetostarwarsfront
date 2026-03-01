@@ -18,14 +18,8 @@ export default function Card({ itens }) {
     //Função para armazenar um item em uma lista baseado em um estado.
     //Tentei por push antes, mas os dados não atualizam corretamente
     function favoritado(itemfavoritado) {
-        if(listaFavoritos.some((personagem) => personagem.nome === itemfavoritado.nome)){
-            return(
-                <>
-                <div style={{width:"100px", height:"100px", border: "solid 2px black"}}>
-                    <p>"Você já favoritou esse item!"</p>
-                </div>
-                </>
-            )
+        if(listaFavoritos.some((personagem) => personagem.name === itemfavoritado.name)){
+            alert("Você já favoritou esse item!")
         }else if (itemfavoritado) {
             setListaDeFavoritos([...listaFavoritos, itemfavoritado])
         } else {
@@ -36,21 +30,17 @@ export default function Card({ itens }) {
     //Comparamos se o personagem possui um nome igual a um existente dentro da lista de favoritos e então removemos ele
     function removerDosFavoritos(itemParaRemover) {
         if (itemParaRemover) {
-            setListaDeFavoritos(listaFavoritos.filter((personagem) => personagem.nome !== itemParaRemover.nome))
+            setListaDeFavoritos(listaFavoritos.filter((personagem) => personagem.name !== itemParaRemover.name))
         }
     }
 
     function estaFavoritado(carditem) {
-            return (listaFavoritos.some((item) => item.id === carditem.id))
+            return (listaFavoritos.some((item) => item.name === carditem.name))
     }
 
     // if(item.url == ""; src={person};<img className={styles.iconefav} src={heart} alt="favoritos" onClick={() => favoritado(item)} />)
     return (
         <>
-            {console.log(location.pathname)}
-            {console.log([listaFavoritos])}
-            {console.log(listaFavoritos.length)}
-
             <div className={styles.container}>
                 <div className={styles.containerMensagem}>
                     {location.pathname === "/" ?
@@ -74,16 +64,17 @@ export default function Card({ itens }) {
                 <div className={styles.containerPaiCard}>
                     {location.pathname === "/" ? (<>
                         {itens.map(item => (
-                            <div style={{ "--url-img": `url(${item.url})`, border: estaFavoritado(item)?"#ffbf00 solid 2px":"#828994 solid 2px"}} className={styles.containercard} key={item.id}>
+                            <div style={{ "--url-img": `url(${item.url})`, border: estaFavoritado(item)?"#ffbf00 solid 2px":"#828994 solid 2px"}} className={styles.containercard} key={item.name}>
+                            {console.log(item.url)}
                                 <div className={styles.containerIcone}>
                                     <img className={styles.iconefav} src={estaFavoritado(item)?(yellowheart):(heart)} alt="favoritos" onClick={() => favoritado(item)} style={{filter: estaFavoritado(item) ? "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)" : "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)"}}/>
                                 </div>
                                 <div className={styles.containerInfo}>
-                                    <p className={styles.nomepersonagem}>{item.nome}</p>
+                                    <p className={styles.nomepersonagem}>{item.name}</p>
                                     <ul className={styles.listaInfo}>
-                                        <li className={styles.infos}>Nascimento: {item.nascimento}</li>
-                                        <li className={styles.infos}>Gênero: {item.genero}</li>
-                                        <li className={styles.infos}>Altura: {item.altura}</li>
+                                        <li className={styles.infos}>Nascimento: {item.birth_year}</li>
+                                        <li className={styles.infos}>Gênero: {item.gender}</li>
+                                        <li className={styles.infos}>Altura: {item.height}</li>
                                     </ul>
                                 </div>
                             </div>
@@ -93,13 +84,13 @@ export default function Card({ itens }) {
                         <>
                             {listaFavoritos.length > 0 ? (<>
                                 {listaFavoritos.map(item => (
-                                    <div style={{ "--url-img": `url(${item.url})`, border: estaFavoritado(item)?"#ffbf00 solid 2px":"#828994 solid 2px" }} className={styles.containercard} key={item.id}>
+                                    <div style={{ "--url-img": `url(${item.url})`, border: estaFavoritado(item)?"#ffbf00 solid 2px":"#828994 solid 2px" }} className={styles.containercard} key={item.name}>
                                         <div className={styles.containerIcone}>
                                             {/* <img className={styles.iconefav} src={pen} style={{filter: estaFavoritado(item) ? "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)" : "invert(56%) sepia(8%) saturate(395%) hue-rotate(182deg) brightness(88%) contrast(86%)"}} alt="editar" onClick={() => favoritado(item)} /> */}
                                             <img className={styles.iconefav} src={trash} alt="excluirFavoritos" onClick={() => removerDosFavoritos(item)} />
                                         </div>
                                         <div className={styles.containerInfo}>
-                                            <p className={styles.nomepersonagem}>{item.nome}</p>
+                                            <p className={styles.nomepersonagem}>{item.name}</p>
                                             <ul className={styles.listaInfo}>
                                                 <li className={styles.infos}>Nascimento: {item.nascimento}</li>
                                                 <li className={styles.infos}>Gênero: {item.genero}</li>
